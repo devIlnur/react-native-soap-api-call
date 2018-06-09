@@ -69,49 +69,51 @@ export default class App extends Component<Props> {
     } catch (e) {
       console.info('error', e);
     }
-    
-    // xml2js.parseString("<getPlansReturn xsi:type=\"soapenc:string\" xmlns:soapenc=\"http://schemas.xmlsoap.org/soap/encoding/\">" +
-    //   "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n" +
-    //   "<plans>\n" +
-    //   "\n" +
-    //   "<plan id=\"2\">\n" +
-    //   "<planname><![CDATA[Pay As You Go 4G]]></planname>\n" +
-    //   "<networkname><![CDATA[Mobile]]></networkname>\n" +
-    //   "<description/>\n" +
-    //   "<planamount>0</planamount>\n" +
-    //   "<plansetup>5</plansetup>\n" +
-    //   "<plantype>Mobile</plantype>\n" +
-    //   "<plangroup>Mobile</plangroup>\n" +
-    //   "<product_display_name><![CDATA[New ADSL]]></product_display_name>\n" +
-    //   "<rateplan_display_name/>\n" +
-    //   "<ll_rateplanid>0</ll_rateplanid>\n" +
-    //   "<shownumber>no</shownumber>\n" +
-    //   "<req_address_check>no</req_address_check>\n" +
-    //   "</plan>\n" +
-    //   "\n" +
-    //   "<plan id=\"1\">\n" +
-    //   "<planname><![CDATA[Pay As You Go 3G]]></planname>\n" +
-    //   "<networkname><![CDATA[Mobile]]></networkname>\n" +
-    //   "<description/>\n" +
-    //   "<planamount>0</planamount>\n" +
-    //   "<plansetup>5</plansetup>\n" +
-    //   "<plantype>Mobile</plantype>\n" +
-    //   "<plangroup>Mobile</plangroup>\n" +
-    //   "<product_display_name><![CDATA[New ADSL]]></product_display_name>\n" +
-    //   "<rateplan_display_name/>\n" +
-    //   "<ll_rateplanid>0</ll_rateplanid>\n" +
-    //   "<shownumber>no</shownumber>\n" +
-    //   "<req_address_check>no</req_address_check>\n" +
-    //   "</plan>\n" +
-    //   "\n" +
-    //   "</plans></getPlansReturn>", function (err, result) {
-    //   console.dir(result.getPlansReturn);
-    //   console.info('time', new Date());
-    //   console.dir(result.getPlansReturn["$"]);
-    //   console.info('time', new Date());
-    //   console.dir(result.getPlansReturn["plans"]);
-    //   console.log(err);
-    // });
+  }
+
+  parseXML = () => {
+    xml2js.parseString("<getPlansReturn xsi:type=\"soapenc:string\" xmlns:soapenc=\"http://schemas.xmlsoap.org/soap/encoding/\">" +
+      "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n" +
+      "<plans>\n" +
+      "\n" +
+      "<plan id=\"2\">\n" +
+      "<planname><![CDATA[Pay As You Go 4G]]></planname>\n" +
+      "<networkname><![CDATA[Mobile]]></networkname>\n" +
+      "<description/>\n" +
+      "<planamount>0</planamount>\n" +
+      "<plansetup>5</plansetup>\n" +
+      "<plantype>Mobile</plantype>\n" +
+      "<plangroup>Mobile</plangroup>\n" +
+      "<product_display_name><![CDATA[New ADSL]]></product_display_name>\n" +
+      "<rateplan_display_name/>\n" +
+      "<ll_rateplanid>0</ll_rateplanid>\n" +
+      "<shownumber>no</shownumber>\n" +
+      "<req_address_check>no</req_address_check>\n" +
+      "</plan>\n" +
+      "\n" +
+      "<plan id=\"1\">\n" +
+      "<planname><![CDATA[Pay As You Go 3G]]></planname>\n" +
+      "<networkname><![CDATA[Mobile]]></networkname>\n" +
+      "<description/>\n" +
+      "<planamount>0</planamount>\n" +
+      "<plansetup>5</plansetup>\n" +
+      "<plantype>Mobile</plantype>\n" +
+      "<plangroup>Mobile</plangroup>\n" +
+      "<product_display_name><![CDATA[New ADSL]]></product_display_name>\n" +
+      "<rateplan_display_name/>\n" +
+      "<ll_rateplanid>0</ll_rateplanid>\n" +
+      "<shownumber>no</shownumber>\n" +
+      "<req_address_check>no</req_address_check>\n" +
+      "</plan>\n" +
+      "\n" +
+      "</plans></getPlansReturn>", function (err, result) {
+      console.dir(result.getPlansReturn);
+      console.info('time', new Date());
+      console.dir(result.getPlansReturn["$"]);
+      console.info('time', new Date());
+      console.dir(result.getPlansReturn["plans"]);
+      console.log(err);
+    });
   }
   
   render() {
